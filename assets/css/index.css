@@ -128,16 +128,25 @@ body {
 }
 
 .home-main--article .article-group {
-    padding: 0 15px;
+    padding: 5px 15px;
 }
 
 .home-main--article .article-title {
     font-weight: bold;
+    text-transform: uppercase;
     margin: 10px 0;
 }
 
+.home-main--article .article-date {
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+.article-date span {
+    color: #15A589;
+}
+
 .home-main--article .article-author {
-    text-align: left;
     color: #696969;
 }
 
