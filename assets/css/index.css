@@ -167,6 +167,12 @@ body {
     text-decoration: none;
     background: #15A589;
     border: 1px solid #15A589;
+    transition: all 0.2s ease-in;
+}
+
+.home-main--article .article-button:hover {
+    background: transparent;
+    color: #15A589;
 }
 
 
