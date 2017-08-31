@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/index.css">
         <link rel="stylesheet" href="assets/css/login.css">
+        <link rel="stylesheet" href="assets/css/register.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     </head>
@@ -21,7 +22,7 @@
                 </ul>
                 <ul class="main-nav--login">
                     <li><a href="login.php">Login</a></li>
-                    <li><a href="#">Register</a></li>
+                    <li><a href="register.php">Register</a></li>
                 </ul>
             </nav>
         </div>
