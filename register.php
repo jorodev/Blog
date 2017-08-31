@@ -2,7 +2,7 @@
 
 <?php 
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['register'])) {
     $_SESSION['username'] = $_POST['username'];
     $_SESSION['email'] = $_POST['email'];
     
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
     
             // Send registration confirmation link (verify.php)
             $to = $email;
-            $subject = 'Account Verification ( clevertechie.com )';
+            $subject = 'Account Verification ( www.blog.com )';
             $message_body = '
             Hello '.$username.',
     
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password"placeholder="Password" required><br /><br />
-                <input type="submit" name="submit" value="Register"><br /><br />
+                <input type="submit" name="register" value="Register"><br /><br />
                 or <a href="login.php">Already have an account?</a>
             </form>
         </div>

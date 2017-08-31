@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="assets/css/index.css">
         <link rel="stylesheet" href="assets/css/login.css">
         <link rel="stylesheet" href="assets/css/register.css">
+        <link rel="stylesheet" href="assets/css/profile.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     </head>
@@ -30,7 +31,7 @@
                     <li><a href="login.php">Login</a></li>
                     <li><a href="register.php">Register</a></li>
                 </ul> <?php } else { ?>
-                    <li><a href="#"><?php echo $_SESSION['username']; ?></a></li>
+                    <li><a href="profile.php"><?php echo $_SESSION['username']; ?></a></li>
                     <li><a href="logout.php">Logout</a></li>
                 <?php } ?>
             </nav>
