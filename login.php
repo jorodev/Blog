@@ -9,7 +9,7 @@
                 <input type="password" name="passowrd"placeholder="Password" required><br /><br />
                 <a href="#">Forgot Password?</a>
                 <input type="submit" name="submit" value="Login"><br /><br />
-                or <a href="register.php">Make an account</a>
+                or <a href="register.php">Make an account?</a>
             </form>
         </div>
     </main>
