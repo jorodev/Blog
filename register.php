@@ -18,22 +18,22 @@ if (isset($_POST['register'])) {
     or die($mysqli->error);
     
     if ($result->num_rows > 0) {
-        $error_email = '<p>User with this email already exists!</p>';
-    } else if ($result->num_rows > 0) {
-        $error_username = '<p>User with this username already exists!</p>';
+        $error_email = 'User with this email already exists!';
+    } else if ($result2->num_rows > 0) {
+        $error_username = 'User with this username already exists!';
     } else {
         $sql = "INSERT INTO users (username, email, password, hash) "
                 . "VALUES ('$username', '$email', '$password', '$hash')";
     
         if ($mysqli->query($sql)) {
-            $_SESSION['active'] = 0; //0 until user activates their account with verify.php
-            $_SESSION['logged_in'] = true; // So we know the user has logged in
-            $_SESSION['message'] =
+            $_SESSION['active'] = 0;
+            $_SESSION['logged_in'] = true;
+            $_SESSION['success'] = "You successfuly logged in your account!";
+            $_SESSION['verify'] =
                     
                      "Confirmation link has been sent to $email, please verify
                      your account by clicking on the link in the message!";
     
-            // Send registration confirmation link (verify.php)
             $to = $email;
             $subject = 'Account Verification ( www.blog.com )';
             $message_body = '
@@ -43,28 +43,33 @@ if (isset($_POST['register'])) {
     
             Please click this link to activate your account:
     
-            http://localhost/login-system/verify.php?email='.$email.'&hash='.$hash;  
+            http://localhost/login-system/verify.php?email='.$email.'&hash='.$hash;
     
             mail($to, $subject, $message_body);
     
-            header("location: index.php");
+            header("location: profile.php");
         }
     }
 }
 
 ?>
 
+<div class="alerts">
+    <?php if (isset($error_email)) { ?>
+    <div class="alert">
+        <span class="closebtn">&times;</span>  
+        <strong>Danger!</strong> <?php echo $error_email; ?>
+    </div>
+    <?php } ?>
+    <?php if (isset($error_username)) { ?>
+    <div class="alert">
+        <span class="closebtn">&times;</span>  
+        <strong>Danger!</strong> <?php echo $error_username; ?>
+    </div>
+    <?php } ?>
+</div>
 <div class="register-wrapper">
     <main class="register-main container">
-        <div class="error-box">
-            <?php 
-                if (isset($error_email)) {
-                    echo $error_email;
-                } else if (isset($error_username)) {
-                    echo $error_username;
-                }
-            ?>
-        </div>
         <div class="register-main--box">
             <h3 class="register-heading">Register</h3>
             <form class="register-form" action="" method="POST">

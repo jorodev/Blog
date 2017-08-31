@@ -7,8 +7,7 @@ if (isset($_POST['login'])) {
     $result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
     
     if ($result->num_rows == 0) {
-        $error = "User with that email doesn't exist!";
-        echo $error_email;
+        $error = "You have entered wrong email or password, try again!";
     } else {
         $user = $result->fetch_assoc();
     
@@ -19,16 +18,25 @@ if (isset($_POST['login'])) {
             
             // This is how we'll know the user is logged in
             $_SESSION['logged_in'] = true;
+            $_SESSION['success'] = "You successfuly logged in your account!";
     
             header("location: profile.php");
         } else {
             $error = "You have entered wrong email or password, try again!";
-            echo $error;
         }
     }
 }
 
 ?>
+
+<div class="alerts">
+    <?php if (isset($error)) { ?>
+    <div class="alert">
+        <span class="closebtn">&times;</span>  
+        <strong>Danger!</strong> <?php echo $error; ?>
+    </div>
+    <?php } ?>
+</div>
 
 <div class="login-wrapper">
     <main class="login-main container">
