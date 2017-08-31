@@ -26,8 +26,12 @@
                     <li><a href="#">Contact</a></li>
                 </ul>
                 <ul class="main-nav--login">
+                <?php if (!isset($_SESSION['logged_in'])) { ?>
                     <li><a href="login.php">Login</a></li>
                     <li><a href="register.php">Register</a></li>
-                </ul>
+                </ul> <?php } else { ?>
+                    <li><a href="#"><?php echo $_SESSION['username']; ?></a></li>
+                    <li><a href="logout.php">Logout</a></li>
+                <?php } ?>
             </nav>
         </div>
