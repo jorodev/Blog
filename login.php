@@ -21,6 +21,7 @@ if (isset($_POST['login'])) {
             $_SESSION['success'] = "You successfuly logged in your account!";
     
             header("location: profile.php");
+            exit();
         } else {
             $error = "You have entered wrong email or password, try again!";
         }
@@ -33,7 +34,7 @@ if (isset($_POST['login'])) {
     <?php if (isset($error)) { ?>
     <div class="alert">
         <span class="closebtn">&times;</span>  
-        <strong>Danger!</strong> <?php echo $error; ?>
+        <strong></strong> <?php echo $error; ?>
     </div>
     <?php } ?>
 </div>

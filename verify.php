@@ -13,6 +13,7 @@ if (isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && 
         $_SESSION['error'] = "Account has already been activated or the URL is invalid!";
 
         header("location: profile.php");
+        exit();
     } else {
         unset($_SESSION['not_active']);
         $_SESSION['activated'] = "Your account has been activated!";
@@ -23,10 +24,12 @@ if (isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && 
         $_SESSION['active'] = 1;
 
         header("location: profile.php");
+        exit();
     }
 } else {
     $_SESSION['error'] = "Invalid parameters provided for account verification!";
     header("location: profile.php");
+    exit();
 }
 
 ?>

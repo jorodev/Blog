@@ -48,6 +48,7 @@ if (isset($_POST['register'])) {
             mail($to, $subject, $message_body);
     
             header("location: profile.php");
+            exit();
         }
     }
 }
@@ -58,13 +59,13 @@ if (isset($_POST['register'])) {
     <?php if (isset($error_email)) { ?>
     <div class="alert">
         <span class="closebtn">&times;</span>  
-        <strong>Danger!</strong> <?php echo $error_email; ?>
+        <strong></strong> <?php echo $error_email; ?>
     </div>
     <?php } ?>
     <?php if (isset($error_username)) { ?>
     <div class="alert">
         <span class="closebtn">&times;</span>  
-        <strong>Danger!</strong> <?php echo $error_username; ?>
+        <strong></strong> <?php echo $error_username; ?>
     </div>
     <?php } ?>
 </div>
