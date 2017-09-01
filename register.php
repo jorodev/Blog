@@ -43,7 +43,7 @@ if (isset($_POST['register'])) {
     
             Please click this link to activate your account:
     
-            http://localhost/login-system/verify.php?email='.$email.'&hash='.$hash;
+            http://localhost/blog/verify.php?email='.$email.'&hash='.$hash;
     
             mail($to, $subject, $message_body);
     
