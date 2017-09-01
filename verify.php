@@ -14,6 +14,7 @@ if (isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && 
 
         header("location: profile.php");
     } else {
+        unset($_SESSION['not_active']);
         $_SESSION['activated'] = "Your account has been activated!";
 
         $mysqli->query("UPDATE users SET active='1' WHERE email='$email'")
