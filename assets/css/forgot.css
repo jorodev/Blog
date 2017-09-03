@@ -1,12 +1,12 @@
-.reset-wrapper {
+.forgot-wrapper {
     width: 100%;
     height: 100%;
     background: #E7EAF3;
 }
 
-.reset-main--box {
+.forgot-main--box {
     width: 350px;
-    height: 260px;
+    height: 200px;
     background: #fff;
     margin: 50px auto;
     padding: 10px 0;
@@ -14,16 +14,16 @@
     box-shadow: 0 5px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.reset-heading {
+.forgot-heading {
     font-size: 26px;
     color: #18BC9C;
 }
 
-.reset-form {
+.forgot-form {
     margin-top: 20px;
 }
 
-.reset-form input[type=password] {
+.forgot-form input[type=email] {
     width: 300px;
     height: 35px;
     margin-bottom: 10px;
@@ -33,7 +33,7 @@
     border-bottom: 1px solid #18BC9C;
 }
 
-.reset-form input[type=submit] {
+.forgot-form input[type=submit] {
     width: 300px;
     height: 45px;
     margin-top: 30px;
@@ -45,11 +45,11 @@
     cursor: pointer;
 }
 
-.reset-form input[type=submit]:hover {
+.forgot-form input[type=submit]:hover {
     background: transparent;
     color: #18BC9C;
 }
 
-.reset-form a {
+.forgot-form a {
     color: #18BC9C;
 }
