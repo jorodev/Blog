@@ -16,7 +16,7 @@
 }
 
 .article-main--article {
-    width: 800px;
+    width: 100%;
     height: 100%;
     background: #fff;
     position: relative;
@@ -32,9 +32,9 @@
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.article-main--article .article--image {
+.article-main--article .article-article--image {
     width: 100%;
-    height: 150px;
+    height: 100%;
 }
 
 .article-main--article .article-article--group {
