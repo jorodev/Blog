@@ -2,7 +2,7 @@
 
 <?php 
 
-$sql = "SELECT * FROM articles";
+$sql = "SELECT id, title, created, author_id, LEFT(content, 200) AS content FROM articles";
 $result = $mysqli->query($sql);
 
 ?>
@@ -37,6 +37,7 @@ $result = $mysqli->query($sql);
             while($row = $result->fetch_assoc()) { ?>
                 <?php 
                 
+
                 $author_id = $row['author_id']; 
                 $sql2 = "SELECT users.username FROM users INNER JOIN articles ON articles.author_id = users.id WHERE articles.author_id = $author_id";
                 $result2 = $mysqli->query($sql2);
@@ -50,7 +51,7 @@ $result = $mysqli->query($sql);
                         <div class="article-date">Posted <span><?php echo $row['created'] ?></span></div>
                         <div class="article-author">by <a href="#"><?php echo $row2['username']; ?>    
                         </a></div>
-                        <p class="article-content"><?php echo $row['content']; ?></p>
+                        <p class="article-content"><?php echo $row['content'] . "..."; ?></p>
                         <a class="article-button" href="#">Read more</a><br /><br />
                     </div>
                 </article>
