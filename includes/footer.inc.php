@@ -2,4 +2,4 @@
     </body>
 </html>
 
-<?php mysqli_close($mysqli) ?>
+<?php $mysqli->close(); ?>
