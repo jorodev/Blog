@@ -10,11 +10,13 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
 
     if ($result->num_rows == 0) { 
         $_SESSION['error'] = "You have entered invalid URL for password reset!";
-        header("location: reset.php");
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit();
     }
 } else {
     $_SESSION['error'] = "Sorry, verification failed, try again!";
-    header("location: reset.php");
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit();
 }
 
 ?>

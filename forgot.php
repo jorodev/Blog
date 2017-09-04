@@ -43,7 +43,8 @@ if (isset($_POST['reset'])) {
 
     if ($result->num_rows == 0) { 
         $_SESSION['error'] = "User with that email doesn't exist!";
-        header("location: forgot.php");
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit();
     } else {
 
         $user = $result->fetch_assoc();
@@ -70,7 +71,8 @@ if (isset($_POST['reset'])) {
 
         mail($to, $subject, $message_body);
 
-        header("location: forgot.php");
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit();
     }
 }
 

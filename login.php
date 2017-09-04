@@ -37,6 +37,12 @@ if (isset($_POST['login'])) {
         <strong></strong> <?php echo $error; ?>
     </div>
     <?php } ?>
+    <?php if (isset($_SESSION['success'])) { ?>
+    <div class="alert success">
+        <span class="closebtn">&times;</span>  
+        <strong></strong> <?php echo $_SESSION['success']; unset($_SESSION['success']); ?>
+    </div>
+    <?php } ?>
 </div>
 
 <div class="login-wrapper">
