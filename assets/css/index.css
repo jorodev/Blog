@@ -223,47 +223,47 @@ body {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.home-main--article .article-image {
+.home-main--article .home-article--image {
     width: 100%;
     height: 150px;
 }
 
-.home-main--article .article-group {
+.home-main--article .home-article--group {
     padding: 5px 15px;
 }
 
-.home-main--article .article-title {
+.home-main--article .home-article--title {
     font-weight: bold;
     margin: 10px 0;
     word-wrap: break-word;
 }
 
-.home-main--article .article-date {
+.home-main--article .home-article--date {
     font-size: 13px;
     margin: 5px 0;
 }
 
-.article-date span {
+.home-article--date span {
     color: #15A589;
 }
 
-.home-main--article .article-author {
+.home-main--article .home-article--author {
     color: #696969;
 }
 
-.article-author a {
+.home-article--author a {
     color: #18BC9C;
     font-weight: bold;
     text-decoration: none;
 }
 
-.home-main--article .article-content {
+.home-main--article .home-article--content {
     margin: 15px 0 25px 0;
     color: #696969;
     word-wrap: break-word;
 }
 
-.home-main--article .article-button {
+.home-main--article .home-article--button {
     padding: 5px 15px;
     color: #fff;
     text-decoration: none;
@@ -272,7 +272,7 @@ body {
     transition: all 0.2s ease-in;
 }
 
-.home-main--article .article-button:hover {
+.home-main--article .home-article--button:hover {
     background: transparent;
     color: #15A589;
 }
