@@ -2,11 +2,6 @@
 
 <?php
 
-if (!isset($_SESSION['logged_in'])) {
-    header("location: login.php");
-    exit();
-}
-
 $username = $_SESSION['username'];
 $result = $mysqli->query("SELECT * FROM users WHERE username='$username' AND active='0'");
 
