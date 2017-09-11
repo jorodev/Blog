@@ -2,11 +2,14 @@
 
 <?php
 
-$username = $_SESSION['username'];
-$result = $mysqli->query("SELECT * FROM users WHERE username='$username' AND active='0'");
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
 
-if ($result->num_rows > 0) {
-    $_SESSION['not_active'] = "Your account is not activated! Please check your email for confirmation link and click it to verify your account!";
+    $result = $mysqli->query("SELECT * FROM users WHERE username='$username' AND active='0'");
+    
+    if ($result->num_rows > 0) {
+        $_SESSION['not_active'] = "Your account is not activated! Please check your email for confirmation link and click it to verify your account!";
+    }
 }
 
 ?>
