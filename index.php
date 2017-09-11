@@ -2,7 +2,7 @@
 
 <?php 
 
-$sql = "SELECT id, title, created, author_id, LEFT(content, 200) AS content FROM articles";
+$sql = "SELECT id, image, title, created, author_id, LEFT(content, 200) AS content FROM articles";
 $result = $mysqli->query($sql);
 
 ?>
@@ -45,7 +45,7 @@ $result = $mysqli->query($sql);
                 
                 ?>
                 <article class="home-main--article">
-                    <img class="home-article--image" src="http://via.placeholder.com/300x150" alt="Image coudn't load">
+                    <img class="home-article--image" src="<?php echo $row['image']; ?>" alt="Image coudn't load">
                     <div class="home-article--group">
                         <h3 class="home-article--title"3><?php echo $row['title']; ?></h3>
                         <div class="home-article--date">Posted <span><?php echo $row['created'] ?></span></div>

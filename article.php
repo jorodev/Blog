@@ -25,7 +25,7 @@ $result = $mysqli->query($sql);
                 
                 ?>
                 <article class="article-main--article">
-                    <img class="article-article--image" src="http://via.placeholder.com/800x300" alt="Image coudn't load">
+                    <img class="article-article--image" src="<?php echo $row['image']; ?>" alt="Image coudn't load">
                     <div class="article-article--group">
                         <h3 class="article-article--title"3><?php echo $row['title']; ?></h3>
                         <div class="article-article--date">Posted <span><?php echo $row['created'] ?></span></div>
