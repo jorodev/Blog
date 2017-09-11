@@ -29,7 +29,7 @@ $result = $mysqli->query($sql);
                     <div class="article-article--group">
                         <h3 class="article-article--title"3><?php echo $row['title']; ?></h3>
                         <div class="article-article--date">Posted <span><?php echo $row['created'] ?></span></div>
-                        <div class="article-article--author">by <a href="#"><?php echo $row2['username']; ?>    
+                        <div class="article-article--author">by <a href="profile.php?u=<?php echo $row2['username']; ?>"><?php echo $row2['username']; ?>    
                         </a></div>
                         <p class="article-article--content"><?php echo $row['content']; ?></p>
                     </div>

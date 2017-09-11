@@ -48,7 +48,7 @@ $result = $mysqli->query($sql);
                     <div class="home-article--group">
                         <h3 class="home-article--title"3><?php echo $row['title']; ?></h3>
                         <div class="home-article--date">Posted <span><?php echo $row['created']; ?></span></div>
-                        <div class="home-article--author">by <a href="#"><?php echo $row2['username']; ?>    
+                        <div class="home-article--author">by <a href="profile.php?u=<?php echo $row2['username']; ?>"><?php echo $row2['username']; ?>    
                         </a></div>
                         <p class="home-article--content"><?php echo $row['content'] . "..."; ?></p>
                         <a class="home-article--button" href="article.php?id=<?php echo $row['id']; ?>">Read more</a><br /><br />

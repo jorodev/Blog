@@ -14,13 +14,14 @@ if (isset($_POST['login'])) {
         if (password_verify($_POST['password'], $user['password'])) {
             $_SESSION['email'] = $user['email'];
             $_SESSION['username'] = $user['username'];
+            $username = $_SESSION['username'];
             $_SESSION['active'] = $user['active'];
             
             // This is how we'll know the user is logged in
             $_SESSION['logged_in'] = true;
             $_SESSION['success'] = "You successfuly logged in your account!";
     
-            header("location: profile.php");
+            header("location: profile.php?u=$username");
             exit();
         } else {
             $error = "You have entered wrong email or password, try again!";

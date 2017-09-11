@@ -4,6 +4,7 @@
 
 if (isset($_POST['register'])) {
     $_SESSION['username'] = $_POST['username'];
+    $username = $_SESSION['username'];
     $_SESSION['email'] = $_POST['email'];
     
     $username = $mysqli->escape_string($_POST['username']);
@@ -47,7 +48,7 @@ if (isset($_POST['register'])) {
     
             mail($to, $subject, $message_body);
     
-            header("location: profile.php");
+            header("location: profile.php?u=$username");
             exit();
         }
     }
