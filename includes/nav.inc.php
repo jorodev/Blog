@@ -33,7 +33,7 @@
                     <li><a href="login.php">Login</a></li>
                     <li><a href="register.php">Register</a></li>
                 </ul> <?php } else { ?>
-                    <li><a href="profile.php"><?php echo $_SESSION['username']; ?></a></li>
+                    <li><a href="profile.php?un=<?php echo $_SESSION['username']; ?>"><?php echo $_SESSION['username']; ?></a></li>
                     <li><a href="logout.php">Logout</a></li>
                 <?php } ?>
             </nav>

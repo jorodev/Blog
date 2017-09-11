@@ -37,18 +37,17 @@ $result = $mysqli->query($sql);
             while($row = $result->fetch_assoc()) { ?>
                 <?php 
                 
-
                 $author_id = $row['author_id']; 
                 $sql2 = "SELECT users.username FROM users INNER JOIN articles ON articles.author_id = users.id WHERE articles.author_id = $author_id";
                 $result2 = $mysqli->query($sql2);
                 $row2 = $result2->fetch_assoc();
-                
+
                 ?>
                 <article class="home-main--article">
                     <img class="home-article--image" src="<?php echo $row['image']; ?>" alt="Image coudn't load">
                     <div class="home-article--group">
                         <h3 class="home-article--title"3><?php echo $row['title']; ?></h3>
-                        <div class="home-article--date">Posted <span><?php echo $row['created'] ?></span></div>
+                        <div class="home-article--date">Posted <span><?php echo $row['created']; ?></span></div>
                         <div class="home-article--author">by <a href="#"><?php echo $row2['username']; ?>    
                         </a></div>
                         <p class="home-article--content"><?php echo $row['content'] . "..."; ?></p>
