@@ -23,7 +23,20 @@ CREATE TABLE `blog`.`users`
     `password` VARCHAR(100) NOT NULL,
     `hash` VARCHAR(32) NOT NULL,
     `active` BOOLEAN NOT NULL DEFAULT 0,
-PRIMARY KEY (`id`) 
+    PRIMARY KEY (`id`) 
+);') or die($mysqli->error);
+
+$mysqli->query('
+CREATE TABLE `blog`.`articles`
+(
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(200) NOT NULL,
+    `image` VARCHAR(150) NOT NULL DEFAULT 'assets/images/default.png',
+    `created` DATETIME NOT NULL,
+    `author_id` INT NOT NULL,
+    `content` VARCHAR(2000) NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (author_id) REFERENCES users(id)
 );') or die($mysqli->error);
 
 ?>
