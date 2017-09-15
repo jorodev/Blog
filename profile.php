@@ -47,4 +47,21 @@ if (isset($_SESSION['username'])) {
     <?php } ?>
 </div>
 
+<div class="profile-wrapper">
+    <div class="profile container">
+        <div class="profile-box--left">
+            <img class="profile-box--avatar" src="assets/images/defaultavatar.png" alt="">
+            <span class="profile-box--nick">Nickname</span>
+            <div class="profile-box--tab">
+                <button class="profile-box--tablinks" onclick="openCity(event, 'London')">Posts <span class="counter">(0)</span></button>
+                <button class="profile-box--tablinks" onclick="openCity(event, 'Paris')">Friends <span class="counter">(0)</span></button>
+                <button class="profile-box--tablinks" onclick="openCity(event, 'Tokyo')">Settings</button>
+            </div>
+        </div>
+        <div class="profile-box--right">
+            
+        </div>
+    </div>
+</div>
+
 <?php include 'includes/footer.inc.php' ?>
