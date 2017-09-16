@@ -3,7 +3,9 @@
 require 'db/dbconnection.php';
 session_start();
 
-if (isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !empty($_GET['hash'])) {
+$username = $_SESSION['username'];
+
+if (isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !empty($_GET['hash']) AND isset($_SESSION['logged_in'])) {
     $email = $mysqli->escape_string($_GET['email']);
     $hash = $mysqli->escape_string($_GET['hash']);
 
@@ -12,7 +14,7 @@ if (isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && 
     if ($result->num_rows == 0) {
         $_SESSION['error'] = "Account has already been activated or the URL is invalid!";
 
-        header("location: profile.php");
+        header("location: profile.php?user=$username");
         exit();
     } else {
         unset($_SESSION['not_active']);
@@ -23,12 +25,12 @@ if (isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && 
 
         $_SESSION['active'] = 1;
 
-        header("location: profile.php");
+        header("location: profile.php?user=$username");
         exit();
     }
 } else {
-    $_SESSION['error'] = "Invalid parameters provided for account verification!";
-    header("location: profile.php");
+    $_SESSION['error'] = "Invalid parameters provided for account verification or not logged in!";
+    header("location: index.php");
     exit();
 }
 

@@ -2,16 +2,23 @@
 
 <?php
 
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
+if (!isset($_SESSION['logged_in'])) {
+    $_SESSION['error'] = "You have to be logged in to view user profiles! Please log in!";
 
-    $result = $mysqli->query("SELECT * FROM users WHERE username='$username' AND active='0'");
+    header("location: login.php");
+    exit();
+} else {
+    if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
     
-    if ($result->num_rows > 0) {
-        $_SESSION['not_active'] = "Your account is not activated! Please check your email for confirmation link and click it to verify your account!";
+        $result = $mysqli->query("SELECT * FROM users WHERE username='$username' AND active='0'");
+        
+        if ($result->num_rows > 0) {
+            $_SESSION['not_active'] = "Your account is not activated! Please check your email for confirmation link and click it to verify your account!";
+        }
     }
 }
-
+    
 ?>
 
 <div class="alerts">

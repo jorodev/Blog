@@ -7,7 +7,7 @@ if (isset($_POST['login'])) {
     $result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
     
     if ($result->num_rows == 0) {
-        $error = "You have entered wrong email or password, try again!";
+        $_SESSION['error'] = "You have entered wrong email or password, try again!";
     } else {
         $user = $result->fetch_assoc();
     
@@ -16,15 +16,13 @@ if (isset($_POST['login'])) {
             $_SESSION['username'] = $user['username'];
             $username = $_SESSION['username'];
             $_SESSION['active'] = $user['active'];
-            
-            // This is how we'll know the user is logged in
             $_SESSION['logged_in'] = true;
             $_SESSION['success'] = "You successfuly logged in your account!";
     
-            header("location: profile.php?u=$username");
+            header("location: profile.php?user=$username");
             exit();
         } else {
-            $error = "You have entered wrong email or password, try again!";
+            $_SESSION['error'] = "You have entered wrong email or password, try again!";
         }
     }
 }
@@ -32,10 +30,10 @@ if (isset($_POST['login'])) {
 ?>
 
 <div class="alerts">
-    <?php if (isset($error)) { ?>
+    <?php if (isset($_SESSION['error'])) { ?>
     <div class="alert">
         <span class="closebtn">&times;</span>  
-        <strong></strong> <?php echo $error; ?>
+        <strong></strong> <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
     </div>
     <?php } ?>
     <?php if (isset($_SESSION['success'])) { ?>
