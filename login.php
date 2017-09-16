@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
             $username = $_SESSION['username'];
             $_SESSION['active'] = $user['active'];
             $_SESSION['logged_in'] = true;
-            $_SESSION['success'] = "You successfuly logged in your account!";
+            $_SESSION['success'] = "You have successfuly logged in your account!";
     
             header("location: profile.php?user=$username");
             exit();
