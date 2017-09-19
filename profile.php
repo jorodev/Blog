@@ -60,13 +60,23 @@ if (!isset($_SESSION['logged_in'])) {
             <img class="profile-box--avatar" src="assets/images/defaultavatar.png" alt="">
             <span class="profile-box--nick">Nickname</span>
             <div class="profile-box--tab">
-                <button class="profile-box--tablinks" onclick="openCity(event, 'London')">Posts <span class="counter">(0)</span></button>
-                <button class="profile-box--tablinks" onclick="openCity(event, 'Paris')">Friends <span class="counter">(0)</span></button>
-                <button class="profile-box--tablinks" onclick="openCity(event, 'Tokyo')">Settings</button>
+                <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'posts')">Posts <span class="counter">(0)</span></button>
+                <button class="tablinks" onclick="openTab(event, 'friends')">Friends <span class="counter">(0)</span></button>
+                <button class="tablinks" onclick="openTab(event, 'settings')">Settings</button>
             </div>
         </div>
         <div class="profile-box--right">
-            
+            <div id="posts" class="tabcontent">
+                <p>posts</p>
+            </div>
+
+            <div id="friends" class="tabcontent">
+                <p>friends</p>
+            </div>
+
+            <div id="settings" class="tabcontent">
+                <p>settings</p>
+            </div>
         </div>
     </div>
 </div>
