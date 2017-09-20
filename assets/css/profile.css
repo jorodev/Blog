@@ -32,13 +32,11 @@
     transition: all 0.3s ease-in-out; 
 }
 
-/* Change background color of buttons on hover */
 .tablinks:hover {
     background-color: #ddd;
     color: black;
 }
 
-/* Create an active/current "tab button" class */
 .tablinks.active-tab {
     background-color: #fff;
 }

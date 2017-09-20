@@ -18,6 +18,17 @@ if (!isset($_SESSION['logged_in'])) {
         }
     }
 }
+
+$user = $_GET['user'];
+
+$result = $mysqli->query("SELECT * FROM users WHERE username='$user'");
+
+if ($result->num_rows != 1) {
+    $_SESSION['error'] = "User with that name doesn't exist!";
+
+    header('Location: index.php');
+    exit();
+}
     
 ?>
 
@@ -58,7 +69,7 @@ if (!isset($_SESSION['logged_in'])) {
     <div class="profile container">
         <div class="profile-box--left">
             <img class="profile-box--avatar" src="assets/images/defaultavatar.png" alt="">
-            <span class="profile-box--nick">Nickname</span>
+            <span class="profile-box--nick"><?php echo $_GET['user']; ?></span>
             <div class="profile-box--tab">
                 <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'posts')">Posts <span class="counter">(0)</span></button>
                 <button class="tablinks" onclick="openTab(event, 'friends')">Friends <span class="counter">(0)</span></button>
