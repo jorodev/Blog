@@ -21,13 +21,20 @@ if (!isset($_SESSION['logged_in'])) {
 
 $user = $_GET['user'];
 
-$result = $mysqli->query("SELECT * FROM users WHERE username='$user'");
+$result2 = $mysqli->query("SELECT * FROM users WHERE username='$user'");
 
-if ($result->num_rows != 1) {
+if ($result2->num_rows != 1) {
     $_SESSION['error'] = "User with that name doesn't exist!";
 
     header('Location: index.php');
     exit();
+} else {
+    $row = $result2->fetch_assoc();
+    $user_id = $row['id'];
+
+    $result3 = $mysqli->query("SELECT COUNT(author_id) as counter FROM articles WHERE author_id='$user_id'");
+    $row2 = $result3->fetch_assoc();
+
 }
     
 ?>
@@ -71,14 +78,14 @@ if ($result->num_rows != 1) {
             <img class="profile-box--avatar" src="assets/images/defaultavatar.png" alt="">
             <span class="profile-box--nick"><?php echo $_GET['user']; ?></span>
             <div class="profile-box--tab">
-                <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'posts')">Posts <span class="counter">(0)</span></button>
+                <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'posts')">Articles <span class="counter">(<?php echo $row2['counter']; ?>)</span></button>
                 <button class="tablinks" onclick="openTab(event, 'friends')">Friends <span class="counter">(0)</span></button>
                 <button class="tablinks" onclick="openTab(event, 'settings')">Settings</button>
             </div>
         </div>
         <div class="profile-box--right">
             <div id="posts" class="tabcontent">
-                <p>posts</p>
+                <p>Articles</p>
             </div>
 
             <div id="friends" class="tabcontent">
