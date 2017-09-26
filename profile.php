@@ -34,7 +34,6 @@ if ($result2->num_rows != 1) {
 
     $result3 = $mysqli->query("SELECT COUNT(author_id) as counter FROM articles WHERE author_id='$user_id'");
     $row2 = $result3->fetch_assoc();
-
 }
     
 ?>
@@ -85,7 +84,22 @@ if ($result2->num_rows != 1) {
         </div>
         <div class="profile-box--right">
             <div id="posts" class="tabcontent">
-                <p>Articles</p>
+                <div style="overflow-x:auto;">
+                    <table>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>First title here</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Second title here</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
             <div id="friends" class="tabcontent">
