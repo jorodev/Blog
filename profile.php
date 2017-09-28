@@ -20,8 +20,8 @@ if (!isset($_SESSION['logged_in'])) {
 }
 
 $user = $_GET['user'];
+$result2 = $mysqli->query("SELECT id FROM users WHERE username='$user'");
 
-$result2 = $mysqli->query("SELECT * FROM users WHERE username='$user'");
 
 if ($result2->num_rows != 1) {
     $_SESSION['error'] = "User with that name doesn't exist!";
@@ -86,18 +86,26 @@ if ($result2->num_rows != 1) {
             <div id="posts" class="tabcontent">
                 <div style="overflow-x:auto;">
                     <table>
-                        <tr>
-                            <th>#</th>
-                            <th>Title</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>First title here</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Second title here</td>
-                        </tr>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Created</th>
+                    </tr>
+                    <?php 
+                    $result4 = $mysqli->query("SELECT id, title, created FROM articles WHERE author_id='$user_id'");
+
+                    if ($result4->num_rows > 0) {
+                        while($row4 = $result4->fetch_assoc()) { ?>
+                            <tr>
+                                <td><?php echo $row4['id']; ?></td>
+                                <td><?php echo $row4['title']; ?></td>
+                                <td><?php echo $row4['created']; ?></td>
+                            </tr>
+                    <?php } 
+                    } else {
+                        echo "0 results";
+                    }
+                    ?>
                     </table>
                 </div>
             </div>
